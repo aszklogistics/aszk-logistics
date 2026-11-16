@@ -162,3 +162,105 @@ body.cms-editing .hero [data-key]:focus,body.cms-editing .vision [data-key]:focu
 .cms-del:hover{background:#962d22}
 .cms-add{display:grid;place-items:center;aspect-ratio:4/3;border:3px dashed var(--orange);border-radius:14px;color:var(--orange);font:inherit;font-weight:800;cursor:pointer;background:#fff;text-align:center;padding:10px}
 .cms-add:hover{background:#fff3e3}
+
+/* ---------- Language switch ---------- */
+.langpill{display:inline-flex;border:2px solid var(--navy);border-radius:999px;overflow:hidden;flex:none;margin-left:6px}
+.langpill button{border:0;background:#fff;color:var(--navy);font:inherit;font-weight:800;font-size:.8rem;padding:6px 12px;cursor:pointer;letter-spacing:.5px}
+.langpill button:hover{background:var(--bg)}
+.langpill button.on{background:var(--navy);color:#fff}
+nav a{padding:8px 8px;font-size:.86rem}
+@media(max-width:1120px){
+  .menu-btn{display:block;margin-left:auto}
+  nav ul{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:10px 4%;border-bottom:3px solid var(--orange)}
+  nav ul.open{display:flex}
+}
+
+/* ---------- Organisation chart ---------- */
+.oc{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 20px}
+.oc .ico{font-size:1.25rem;line-height:1;flex:none}
+.oc-top{width:min(360px,100%);margin:0 auto}
+.oc-node{display:flex;align-items:center;justify-content:center;gap:12px;color:#fff;border-radius:12px;padding:14px 18px;font-weight:800;font-size:1.05rem;min-width:0}
+.oc-node .ico{padding-right:12px;border-right:2px solid rgba(255,255,255,.35)}
+.oc-node.n1{background:#0b2f6b}.oc-node.n2{background:#1565c0}
+.oc-node.ops{background:#6f42a3}.oc-node.hr{background:#138a5e}.oc-node.adm{background:#e8871e}
+.oc-v{width:2px;height:22px;background:var(--navy);margin:0 auto}
+.oc-l3,.oc-hubs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative}
+.oc-l3{padding-top:24px;margin-top:-12px}
+.oc-hubs{margin-top:18px;padding-top:26px}
+.oc-l3::before,.oc-hubs::before{content:"";position:absolute;top:12px;left:calc(16.666% - 6px);right:calc(16.666% - 6px);height:2px;background:var(--navy)}
+.oc-hubs::after{content:"";position:absolute;top:-18px;left:calc(16.666% - 7px);width:2px;height:30px;background:var(--navy)}
+.oc-l3>.oc-node{position:relative}
+.oc-l3>.oc-node::before,.oc-hub::before{content:"";position:absolute;left:50%;width:2px;background:var(--navy);margin-left:-1px}
+.oc-l3>.oc-node::before{top:-12px;height:12px}
+.oc-hub::before{top:-14px;height:14px}
+.oc-hub{--c:#1565c0;position:relative;border:3px solid var(--c);border-radius:14px;background:#fff;overflow:hidden;align-self:start}
+.oc-hub.h2{--c:#138a5e}.oc-hub.h3{--c:#6f42a3}
+.oc-hh{background:var(--c);color:#fff;display:flex;gap:12px;align-items:center;padding:14px 16px}
+.oc-hh .pin{font-size:1.6rem;padding-right:12px;border-right:2px solid rgba(255,255,255,.4)}
+.oc-hh b{display:block;font-size:1.15rem;line-height:1.2}
+.oc-hh small{opacity:.9}
+.oc-hub ul{list-style:none;padding:12px;display:grid;gap:10px}
+.oc-hub li{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:12px;background:#e4edfb}
+.oc-hub li.ft{background:#e3f4ea}.oc-hub li.pt{background:#ebe5f7}
+.oc-hub li div{border-left:2px solid rgba(18,48,107,.25);padding-left:12px}
+.oc-hub li b{display:block;font-size:1.5rem;color:var(--navy);line-height:1.1}
+.oc-hub li span:not(.ico){font-size:.9rem;color:var(--text);font-weight:600}
+.oc-total{margin:20px auto 0;max-width:860px;background:#e6eefb;border-radius:14px;padding:14px 18px;display:flex;gap:22px;flex-wrap:wrap;justify-content:center;align-items:center}
+.oc-total .ico{font-size:1.6rem}
+.oc-total>div{display:block}
+.oc-total small{display:block;color:var(--muted);font-weight:600}
+.oc-total b{display:block;font-size:1.35rem;color:var(--navy);line-height:1.15}
+.oc-total .t{display:flex;align-items:center;gap:10px;padding-left:20px;border-left:2px solid rgba(18,48,107,.2)}
+.oc-total .t b{font-size:1.1rem}
+.oc-total .t span:not(.ico){font-size:.82rem;color:var(--text)}
+@media(max-width:860px){
+  .oc{padding:20px 12px}
+  .oc-l3,.oc-hubs{grid-template-columns:1fr}
+  .oc-l3::before,.oc-hubs::before,.oc-hubs::after,.oc-l3>.oc-node::before,.oc-hub::before{display:none}
+  .oc-l3{padding-top:16px;margin-top:0}
+  .oc-hubs{padding-top:16px}
+  .oc-total .t{border-left:0;padding-left:0}
+}
+
+/* ---------- Hub maps ---------- */
+.maps{margin-top:56px}
+.map-frame{border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:#e3e8f2;margin:14px 0}
+.map-frame iframe{width:100%;height:100%;border:0;display:block}
+.map-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn.sm{padding:8px 16px;font-size:.88rem}
+.btn.outline{color:var(--navy);border-color:var(--navy);background:transparent}
+.btn.outline:hover{background:var(--bg)}
+.cms-map-btn{margin-top:12px;border:2px dashed var(--orange);background:#fff;color:#b35f00;border-radius:999px;padding:8px 14px;font:inherit;font-weight:700;cursor:pointer}
+.cms-map-btn:hover{background:#fff3e3}
+
+/* ---------- fixes: header fit, chart connectors, icons ---------- */
+.brand{white-space:nowrap}
+nav ul{flex-wrap:nowrap}
+nav a{white-space:nowrap}
+@media(max-width:1180px){
+  .menu-btn{display:block;margin-left:auto}
+  nav ul{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;flex-wrap:nowrap;padding:10px 4%;border-bottom:3px solid var(--orange)}
+  nav ul.open{display:flex}
+}
+.oc-hub{overflow:visible}
+.oc-hh{border-radius:10px 10px 0 0}
+.oc-node .ico,.oc-hh .pin{filter:brightness(0) invert(1)}
+.btn.sm{padding:8px 14px;font-size:.84rem}
+
+/* ---------- header fit v2 ---------- */
+header.site .wrap{width:min(1240px,94%)}
+nav a{padding:8px 6px;font-size:.84rem}
+.nav{gap:10px}
+.menu-btn{white-space:nowrap;padding:6px 10px}
+@media(max-width:1160px){
+  .menu-btn{display:block;margin-left:auto}
+  nav ul{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;flex-wrap:nowrap;padding:10px 4%;border-bottom:3px solid var(--orange)}
+  nav ul.open{display:flex}
+}
+@media(max-width:520px){
+  .brand{font-size:.95rem;gap:6px}
+  .brand img{width:34px}
+  .langpill{margin-left:0}
+  .langpill button{padding:5px 9px}
+  .nav{gap:8px}
+}
